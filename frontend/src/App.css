@@ -1,0 +1,109 @@
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+    background-color: #f0f2f5;
+    color: #333;
+    overflow-x: hidden;
+  }
+  
+  /* General button styling */
+  button {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Container for each page */
+  .page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Sidebar Styling */
+  .sidebar {
+    width: 250px;
+    background-color: #ffffff;
+    border-right: 1px solid #ddd;
+    height: 100vh;
+    padding-top: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+  
+  .sidebar button {
+    width: 80%;
+    margin: 10px auto;
+    display: block;
+  }
+  
+  /* Main content area */
+  .main-content {
+    margin-left: 250px;
+    padding: 20px;
+    width: calc(100% - 250px);
+  }
+  
+  /* Image container styling */
+  .image-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .image-preview {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+  }
+  
+  /* Loading message */
+  .loading-text {
+    font-size: 18px;
+    color: #555;
+    margin-top: 20px;
+  }
+  
+  /* Feedback form */
+  .feedback-container {
+    margin-top: 30px;
+  }
+  
+  .feedback-container textarea {
+    width: 80%;
+    height: 100px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  .feedback-container button {
+    margin-top: 10px;
+  }
+  
+  
