@@ -1,0 +1,92 @@
+/* Welcome Page Styling */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@500&display=swap');
+
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 60px;
+  height: 100vh;
+  text-align: center;
+  color: #fff;
+  background: radial-gradient(circle at 20% 20%, rgba(72, 61, 139, 0.8), transparent),
+              radial-gradient(circle at 80% 80%, rgba(25, 25, 112, 0.6), transparent),
+              linear-gradient(-45deg, #d20062, #035956, #031a6b);
+  background-size: 400% 400%;
+  animation: auroraShift 15s ease infinite;
+  overflow: hidden;
+  position: relative;
+}
+
+@keyframes auroraShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Fade-in Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.welcome-container h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 72px;
+  font-weight: 400;
+  color: #ffffff;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 15px rgba(173, 216, 230, 0.7);
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid rgba(255, 255, 255, 0.75);
+}
+
+.instruction-title, .instruction-list, .privacy-note {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.instruction-list li {
+  font-size: 24px;
+  line-height: 1.8;
+}
+
+/* Proceed Button Styling */
+.proceed-button {
+  padding: 16px 36px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(45deg, #6a0dad, #4b0082, #d20062);
+  background-size: 300% 300%;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(106, 13, 173, 0.6);
+  transition: background-position 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.proceed-button:hover {
+  background-position: 100% 0;
+  transform: scale(1.1);
+  box-shadow: 0 6px 25px rgba(106, 13, 173, 0.8);
+}
