@@ -100,7 +100,7 @@ const MainPage = () => {
         setPredictionOutput(
           uniqueClasses.current.size !== 0
             ? `Detected conditions: ${Array.from(uniqueClasses.current).join(", ")}`
-            : "You have nice skin. LOL."
+            : "You have nice skin!"
         );
 
         //alert("Prediction successful. Check the annotated images and legend.");
