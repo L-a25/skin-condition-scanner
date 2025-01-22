@@ -14,6 +14,10 @@ In windows(git bash):
 Verify front end using
 `pip list`
 
+## Installing frontend dependencies
+`cd frontend`
+`npm install`
+
 ## Running frontend
 `cd frontend`
 `npm start`
