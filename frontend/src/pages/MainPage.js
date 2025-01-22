@@ -117,7 +117,7 @@ const MainPage = () => {
   
   const printOutput=()=>{
     if(uniqueClasses.current.size!==0) return "i";
-    else return "You have nice skin. LOL.";
+    else return "You have nice skin!";
   };
 
   return (
