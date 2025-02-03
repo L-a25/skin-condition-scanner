@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@500&display=swap');
-
+body{
+  background: radial-gradient(circle at 20% 20%, rgba(72, 61, 139, 0.8), transparent),
+  radial-gradient(circle at 80% 80%, rgba(25, 25, 112, 0.6), transparent),
+  linear-gradient(-45deg, #d20062, #035956, #031a6b); 
+}
 .main-page {
   display: flex;
   height: 100vh;
@@ -178,4 +182,8 @@ p {
 
 .image-container p {
   color: #666;
+}
+.recommendation{
+font-size: 0.1vw;
+color: green;
 }
