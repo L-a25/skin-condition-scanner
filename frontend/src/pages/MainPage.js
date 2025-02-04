@@ -108,6 +108,14 @@ const MainPage = () => {
 
         if(uniqueClasses.current.size !== 0) detectedConditions= Array.from(uniqueClasses.current);
 
+        if (uniqueClasses.current.size !== 0) {
+          detectedConditions = Array.from(uniqueClasses.current);
+        } else {
+          setRecommendation(""); // Ensure recommendation remains empty when no conditions are found
+          return; // Exit early
+        }
+        
+
         detectedConditions.forEach(condition => {
           if (condition === "Dark-circle"||condition === "Droopy-eyelids") {
             recommendationMap[condition] = {

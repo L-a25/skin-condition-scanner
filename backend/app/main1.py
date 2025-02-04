@@ -1,19 +1,20 @@
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from fastapi.staticfiles import StaticFiles
 from model1 import load_model, predict_and_draw
 import os
 import yaml
 import cv2
-
+import numpy as np
+from rembg import remove
+from PIL import Image
 
 # Initialize FastAPI app
 app = FastAPI()
-from fastapi.staticfiles import StaticFiles
 
 # Serve static files
 app.mount("/static", StaticFiles(directory="static"), name="static")
-
 
 # Enable CORS middleware
 app.add_middleware(
@@ -53,6 +54,39 @@ color_map = {i: fixed_color_map.get(i, (128, 128, 128)) for i in class_names}
 if not os.path.exists("static"):
     os.makedirs("static")
 
+def remove_background_and_predict(input_path, output_path, class_names, color_map, model):
+    # Remove background
+    with open(input_path, "rb") as input_file:
+        input_data = input_file.read()
+        output_data = remove(input_data)
+    
+    # Convert output data to a numpy array and decode
+    nparr = np.frombuffer(output_data, np.uint8)
+    img_removed_bg = cv2.imdecode(nparr, cv2.IMREAD_UNCHANGED)
+
+    # Check if we have an alpha channel; if not, assume full opacity
+    if img_removed_bg.shape[2] == 4:
+        alpha = img_removed_bg[:,:,3] / 255.0
+        rgb_img = img_removed_bg[:,:,:3]
+    else:
+        alpha = np.ones(img_removed_bg.shape[:2], dtype=np.float32)
+        rgb_img = img_removed_bg
+
+    # Create a white background image
+    white_bg = np.ones(rgb_img.shape, dtype=np.uint8) * 255
+
+    # Blend the image with white background using the alpha channel
+    img_white_bg = (1 - alpha[:,:,np.newaxis]) * white_bg + alpha[:,:,np.newaxis] * rgb_img
+    img_white_bg = img_white_bg.astype(np.uint8)
+    
+    # Save the image with white background
+    cv2.imwrite(output_path, img_white_bg)
+    
+    # Predict and draw bounding boxes on the white background image
+    annotated_image, boxes = predict_and_draw(output_path, class_names, color_map, model)
+    
+    return annotated_image, boxes
+
 
 @app.post("/predict")
 async def predict_endpoint(
@@ -60,28 +94,25 @@ async def predict_endpoint(
     left: UploadFile = File(...),
     right: UploadFile = File(...),
 ):
-    """
-    Endpoint to handle three separate image uploads (front, left, right),
-    process them, and return predictions for each.
-    """
     try:
         results = {}
         for view, upload_file in {"front": front, "left": left, "right": right}.items():
             # Save the uploaded image
-            input_path = os.path.join("static", f"{view}.jpg")
+            input_path = os.path.join("static", f"{view}_input.png")
             with open(input_path, "wb") as f:
                 f.write(await upload_file.read())
 
-            # Predict and draw bounding boxes
-            annotated_image, boxes = predict_and_draw(input_path, class_names, color_map,model)
+            # Remove background, predict, and draw bounding boxes
+            output_path = os.path.join("static", f"{view}_white_bg.png")
+            annotated_image, boxes = remove_background_and_predict(input_path, output_path, class_names, color_map, model)
 
             # Save the annotated image
-            output_path = os.path.join("static", f"{view}_annotated.jpg")
-            cv2.imwrite(output_path, cv2.cvtColor(annotated_image, cv2.COLOR_RGB2BGR))
+            annotated_path = os.path.join("static", f"{view}_annotated.png")
+            cv2.imwrite(annotated_path, cv2.cvtColor(annotated_image, cv2.COLOR_RGB2BGR))
 
             # Collect results for this view
             results[view] = {
-                "annotated_image_url": f"/static/{view}_annotated.jpg",
+                "annotated_image_url": f"/static/{view}_annotated.png",
                 "bboxes": [
                     {
                         "x1": int(box[0]),
@@ -100,11 +131,6 @@ async def predict_endpoint(
     except Exception as e:
         return {"error": str(e)}
 
-
 @app.get("/")
 def root():
-    """
-    Root endpoint for testing the API.
-    """
-    return {"message": "YOLO Skin Condition Scanner is up and running!"}
-
+    return {"message": "YOLO Skin Condition Scanner with Background Removal is up and running!"}
