@@ -1,15 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 body{
-  background: radial-gradient(circle at 20% 20%, rgba(72, 61, 139, 0.8), transparent),
-  radial-gradient(circle at 80% 80%, rgba(25, 25, 112, 0.6), transparent),
-  linear-gradient(-45deg, #d20062, #035956, #031a6b); 
+  background: #1B4D5A; 
 }
 .main-page {
   display: flex;
   height: 100vh;
-  background: radial-gradient(circle at 20% 20%, rgba(72, 61, 139, 0.8), transparent),
-              radial-gradient(circle at 80% 80%, rgba(25, 25, 112, 0.6), transparent),
-              linear-gradient(-45deg, #d20062, #035956, #031a6b);
+  background: #1B4D5A;
   background-size: 400% 400%;
   animation: auroraShift 15s ease infinite;
 }
@@ -27,8 +24,8 @@ body{
 }
 
 body {
-  font-family: "Arial", sans-serif;
-  background-color: white;
+  font-family: "Lato", sans-serif;
+  background-color: #1B4D5A;
   margin: 0;
   padding: 0;
   
@@ -46,7 +43,7 @@ body {
   width: 25%;
   padding: 20px;
   display: flex;
-  background-color: rgb(160, 212, 229);
+  background-color: #2A6478;
   flex-direction: column;
   align-items: center;
   border-radius: 10px;
@@ -61,26 +58,27 @@ body {
   font-size: 20px;
   font-weight: bold;
   color: #fff;
-  background: linear-gradient(45deg, #6a0dad, #4b0082, #d20062);
+  background: #ff6347;
   background-size: 300% 300%;
   border: none;
   border-radius: 30px;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(106, 13, 173, 0.6);
+  box-shadow: 0 4px 15px #9c6644;
   transition: background-position 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .sidebar button:hover {
   background-position: 100% 0;
   transform: scale(1.1);
-  box-shadow: 0 6px 25px rgba(106, 13, 173, 0.8);
+  background-color: #ff4500;
+  box-shadow: 0 6px 25px #8a5a44;
 }
 
 
 .legend-container {
   margin-top: 15px;
   padding: 10px;
-  background: linear-gradient(10deg, rgb(219, 120, 219) 5%, rgb(147, 228, 220) 60%, rgb(237, 178, 188) 90%);
+  background: #F4A896;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -92,16 +90,16 @@ body {
 .legend-container h3 {
   margin-top: 2px;
   margin-bottom: 10px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Lato', serif;
   font-size: 25px;
   font-weight: bold;
   text-align: center;
-  color: #333;
+  color: #1B4D5A;
 }
 
 .legend-list {
   list-style: none;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Lato', serif;
   padding: 0;
   margin: 0;
 }
@@ -122,38 +120,38 @@ body {
 .legend-label {
   font-size: 20px;
   font-weight: 500;
-  color: #333;
+  color: #1B4D5A;
 }
 
 
 .content {
   flex-grow: 1; 
-  background: transparent;
+  background: #2A6478;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
 }
 
 h1 {
-  font-family:'Great Vibes', cursive;
+  font-family:'Lato', cursive;
   letter-spacing: 2px;
   font-size: 50px;
   font-weight: 400;
-  color: white;
+  color: #F7E8D4;
   text-align: center;
   margin-bottom: 20px;
 }
 
 p {
-  font-family:'Cormorant Garamond', serif;
+  font-family:'Lato', serif;
   font-size: 30px;
   font-weight: 500;
   text-align: center;
-  color: lightgray;
+  color: #F7E8D4;
 }
 
 .image-display {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Lato', serif;
   font-size: 20px;
   display: flex;
   justify-content: space-evenly;
@@ -163,13 +161,14 @@ p {
 .image-container {
   width: 28%;
   text-align: center;
-  border: 1px solid black;
+  border: 1px solid #2A6478;
   padding: 20px;
   border-radius: 5px;
-  background: linear-gradient(20deg, rgb(240, 157, 240) 5%, rgb(116, 229, 218) 60%, rgb(219, 150, 162) 90%);
+  background: #F4A896;
 }
 
 .image-container h3 {
+  color: #1B4D5A;
   margin-top: 2px;
   margin-bottom: 5px;
 }
@@ -181,7 +180,7 @@ p {
 }
 
 .image-container p {
-  color: #666;
+  color: #1B4D5A;
 }
 .recommendation{
 font-size: 0.1vw;

@@ -266,7 +266,7 @@ const MainPage = () => {
         ))}
       </div>
       <div><p>{predictionOutput}</p>
-      <div style={{ background: "radial-gradient(circle at 20% 20%, rgba(72, 61, 139, 0.8), transparent), radial-gradient(circle at 80% 80%, rgba(25, 25, 112, 0.6), transparent),linear-gradient(-45deg, #d20062, #035956, #031a6b)"}}>{recommendation.split("\n").map((line, index) => (
+      <div style={{ background: "#2A6478" }}>{recommendation.split("\n").map((line, index) => (
       <p key={index} >{line}</p>
       ))}
     </div>

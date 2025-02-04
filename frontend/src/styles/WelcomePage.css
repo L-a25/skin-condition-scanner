@@ -1,5 +1,5 @@
 /* Welcome Page Styling */
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 .welcome-container {
   display: flex;
@@ -9,10 +9,8 @@
   padding-top: 60px;
   height: 100vh;
   text-align: center;
-  color: #fff;
-  background: radial-gradient(circle at 20% 20%, rgba(72, 61, 139, 0.8), transparent),
-              radial-gradient(circle at 80% 80%, rgba(25, 25, 112, 0.6), transparent),
-              linear-gradient(-45deg, #d20062, #035956, #031a6b);
+  color: #ffffff;
+  background: linear-gradient(to right, #0093E9, #80D0C7);
   background-size: 400% 400%;
   animation: auroraShift 15s ease infinite;
   overflow: hidden;
@@ -46,11 +44,11 @@
 }
 
 .welcome-container h1 {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Lato', cursive;
   font-size: 72px;
   font-weight: 400;
   color: #ffffff;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 15px rgba(173, 216, 230, 0.7);
+  /* text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 15px rgba(173, 216, 230, 0.7); */
   letter-spacing: 2px;
   margin-bottom: 10px;
   white-space: nowrap;
@@ -59,10 +57,10 @@
 }
 
 .instruction-title, .instruction-list, .privacy-note {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Lato', serif;
   font-size: 28px;
   color: #ffffff;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  /* text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); */
 }
 
 .instruction-list li {
@@ -76,17 +74,18 @@
   font-size: 20px;
   font-weight: bold;
   color: #fff;
-  background: linear-gradient(45deg, #6a0dad, #4b0082, #d20062);
+  background: #ff6347 ;
   background-size: 300% 300%;
   border: none;
   border-radius: 30px;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(106, 13, 173, 0.6);
+  /* box-shadow: 0 4px 15px rgb(231, 45, 45); */
   transition: background-position 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .proceed-button:hover {
   background-position: 100% 0;
   transform: scale(1.1);
-  box-shadow: 0 6px 25px rgba(106, 13, 173, 0.8);
+  background: #ff4500;
+  box-shadow: 0 6px 25px rgb(220, 31, 31);
 }
